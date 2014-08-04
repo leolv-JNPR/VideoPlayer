@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Video</title>
+    <!-- 皮肤 -->
+    <link rel="stylesheet" href="css/video-js.css" type="text/css" media="screen" title="Video JS">
+</head>
+<body>
+
+<!-- Begin VideoJS -->
+<div class="video-js-box" style="margin:20px auto">
+    <!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
+    <video id="example_video_1" class="video-js" width="800" height="600" controls="controls" autoplay="autoplay" loop="loop" preload="auto">
+    </video>
+</div>
+<!-- End VideoJS -->
+
+
+<!-- 加载 VideoJS js -->
+<script src="js/video.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    (function(){
+        var url = window.location.href;
+        var videoFile = '1.ogg';
+        if(url && url.indexOf('?id=')){
+            videoFile = url.substring(url.indexOf('?id=')+4);
+        }
+        var myPlayer = videojs('example_video_1');
+
+        myPlayer.src({src:'videos/'+videoFile,type:'video/ogg; codecs="theora, vorbis"'});
+        myPlayer.play();
+        myPlayer.controls(true);
+    })();
+
+</script>
+</body>
+</html>

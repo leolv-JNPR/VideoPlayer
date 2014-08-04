@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <title>视频播放</title>
+    <style>
+        .row{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="panel panel-primary text-center" style="width: 500px; margin: 100px auto;">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('1.ogg');">视频1</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('2.ogg');">视频2</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo(3);">视频3</button></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('1.ogg');">视频4</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('2.ogg');">视频5</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo(3);">视频6</button></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('1.ogg');">视频7</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('2.ogg');">视频8</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo(3);">视频9</button></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('1.ogg');">视频10</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('2.ogg');">视频11</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo(3);">视频12</button></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('1.ogg');">视频13</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo('2.ogg');">视频14</button></div>
+            <div class="col-md-4"><button type="button" class="btn btn-primary btn-lg" onclick="playVideo(3);">视频15</button></div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.js"></script>
+<script>
+    //(function($, undefined){
+
+        function playVideo(videoId){
+            window.open('playVideo.html?id='+videoId, 'playWindow', 'menubar=no, status=no, titlebar=no, toolbar=no, width=850, height=650');
+        }
+    //})(jQuery);
+</script>
+</body>
+</html>
