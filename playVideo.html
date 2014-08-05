@@ -1,38 +1,108 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Video</title>
     <!-- 皮肤 -->
-    <link rel="stylesheet" href="css/video-js.css" type="text/css" media="screen" title="Video JS">
+    <link type="text/css" href="css/jplayer.blue.monday.css" rel="stylesheet" />
 </head>
+
 <body>
 
-<!-- Begin VideoJS -->
-<div class="video-js-box" style="margin:20px auto">
-    <!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
-    <video id="example_video_1" class="video-js" width="800" height="600" controls="controls" autoplay="autoplay" loop="loop" preload="auto">
-    </video>
-</div>
-<!-- End VideoJS -->
+
+    <div id="jp_container_1" class="jp-video ">
+        <div class="jp-type-single">
+            <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+            <div class="jp-gui">
+                <div class="jp-video-play">
+                    <a href="javascript:;" class="jp-video-play-icon" tabindex="1">play</a>
+                </div>
+                <div class="jp-interface">
+                    <div class="jp-progress">
+                        <div class="jp-seek-bar">
+                            <div class="jp-play-bar"></div>
+                        </div>
+                    </div>
+                    <div class="jp-current-time"></div>
+                    <div class="jp-duration"></div>
+                    <div class="jp-controls-holder">
+                        <ul class="jp-controls">
+                            <li><a href="javascript:;" class="jp-play" tabindex="1">play</a>
+                            </li>
+                            <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a>
+                            </li>
+                            <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a>
+                            </li>
+                            <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a>
+                            </li>
+                            <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a>
+                            </li>
+                            <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a>
+                            </li>
+                        </ul>
+                        <div class="jp-volume-bar">
+                            <div class="jp-volume-bar-value"></div>
+                        </div>
+                        <ul class="jp-toggles">
+                            <li><a href="javascript:;" class="jp-full-screen" tabindex="1" title="full screen">full screen</a>
+                            </li>
+                            <li><a href="javascript:;" class="jp-restore-screen" tabindex="1" title="restore screen">restore screen</a>
+                            </li>
+                            <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a>
+                            </li>
+                            <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="jp-details">
+                        <ul>
+                            <li>
+                                <span class="jp-title"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="jp-no-solution">
+                <span>Update Required</span>
+                To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+            </div>
+        </div>
+    </div>
 
 
-<!-- 加载 VideoJS js -->
-<script src="js/video.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-    (function(){
-        var url = window.location.href;
-        var videoFile = '1.ogg';
-        if(url && url.indexOf('?id=')){
-            videoFile = url.substring(url.indexOf('?id=')+4);
-        }
-        var myPlayer = videojs('example_video_1');
 
-        myPlayer.src({src:'videos/'+videoFile,type:'video/ogg; codecs="theora, vorbis"'});
-        myPlayer.play();
-        myPlayer.controls(true);
-    })();
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.jplayer.min.js" type="text/javascript" charset="utf-8"></script>
 
-</script>
+    <script type="text/javascript">
+    (function($) {
+        $(document).ready(function() {
+            var url = window.location.href;
+            var videoFile = '1.ogg';
+            if (url && url.indexOf('?id=')) {
+                videoFile = url.substring(url.indexOf('?id=') + 4);
+            }
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function() {
+                    $(this).jPlayer("setMedia", {
+                        title: "Video Player",
+                        ogv: "videos/"+videoFile
+                    }).jPlayer("play");
+                },
+                swfPath: "/js",
+                supplied: "ogv",
+                fullScreen: true,
+                fullWindow: true,
+                loop: true
+            });
+        });
+
+
+
+    })(jQuery);
+    </script>
 </body>
+
 </html>
